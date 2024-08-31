@@ -3,8 +3,8 @@ import React from 'react';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 
 const data = [
-  { name: 'WooCommerce Store', value: 44.2 },
-  { name: 'Shopify Store', value: 55.8 },
+  { name: 'WooCommerce Store', value: 44.2, color: '#2cded5' },
+  { name: 'Shopify Store', value: 55.8, color: '#fa7e7e' },
 ];
 
 const COLORS = ['#2cded5', '#fa7e7e'];
@@ -19,6 +19,19 @@ const PieChartComponent = () => (
       </Pie>
       <Tooltip />
     </PieChart>
+    <div>
+      {data.map((item, index) => (
+        <div key={index} style={{ display: 'inline-flex', alignItems: 'center', marginRight: '20px' }}>
+          <div style={{
+            width: '12px',
+            height: '12px',
+            backgroundColor: item.color,
+            marginRight: '8px',
+          }}></div>
+          <span>{item.name}</span>
+        </div>
+      ))}
+    </div>
   </ResponsiveContainer>
 );
 
